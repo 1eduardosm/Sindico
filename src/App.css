@@ -18,17 +18,37 @@ html, body, #root {
   background-color: #282c34;
   height: 10%;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 4vh;
 }
 
 .Body {
   background-color: #ffffff;
   height: 80%;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: #0004ff;
+  font-size: 4vh;
 }
 
 .Footer {
   background-color: #282c34;
   height: 10%;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 4vh;
 }
 
