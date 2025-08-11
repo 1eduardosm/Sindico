@@ -4,13 +4,13 @@ function App() {
   return (
     <div className="App">
       <div className="Header">
-        <p>teste</p>
+        <p>Site funcionando</p>
       </div>
       <div className="Body">
-        <p>teste</p>
+        <p>Vou começar a fazer de noite</p>
       </div>
       <div className="Footer">
-        <p>teste</p>
+        <p>Eu te amo pai!</p>
       </div>
     </div>
   );
