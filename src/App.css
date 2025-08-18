@@ -83,6 +83,42 @@ html {
   width: 50%;
   height: 130%;
 }
+@media (max-width: 768px) {
+  .Header {
+    flex-direction: row;
+    height: auto;
+    padding: 0.5rem;
+    justify-content: space-evenly;
+  }
+
+
+  .Hsw p {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    max-width: 80%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .Navigation {
+    width: 55%;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .Navigation p {
+    font-size: 0.8rem;
+    margin: 0.2rem;
+  }
+
+  .Logo img {
+    height: 60px;
+    width: auto;
+    margin-top: 0.5rem;
+  }
+}
 
 .Body {
   background-color: #ffffff;
