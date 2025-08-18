@@ -15,9 +15,6 @@ function App() {
   return (
     <div className="App">
       <div className="Header">
-        <div className="Hsw">
-          <p>Sindico Profissional</p>
-        </div>
         <div className="Navigation">
           <p onClick={() => scrollToRef(homeRef)}>Home</p>
           <p onClick={() => scrollToRef(vantagensRef)}>Vantagens</p>
