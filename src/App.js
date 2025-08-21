@@ -15,13 +15,18 @@ function App() {
   return (
     <div className="App">
       <div className="Header">
+        <div className="Logo">
+          <img src="/Logo.png" alt="Logo" />
+        </div>
         <div className="Navigation">
           <p onClick={() => scrollToRef(homeRef)}>Home</p>
           <p onClick={() => scrollToRef(vantagensRef)}>Vantagens</p>
           <p onClick={() => scrollToRef(contatoRef)}>Contato</p>
         </div>
-        <div className="Logo">
-          <img src="/Logo.png" alt="Logo" />
+        <div className="Redes">
+          <p onClick={() => scrollToRef(homeRef)}>Home</p>
+          <p onClick={() => scrollToRef(vantagensRef)}>Vantagens</p>
+          <p onClick={() => scrollToRef(contatoRef)}>Contato</p>
         </div>
       </div>
 

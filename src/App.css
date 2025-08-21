@@ -33,7 +33,20 @@ html {
   text-align: center;
   justify-content: center;
   color: #ffffff;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+
+.Logo {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 100%;
+  width: 15%;
+}
+
+.Logo img {
+  width: 70%;
+  height: 130%;
 }
 
 .Navigation {
@@ -59,17 +72,9 @@ html {
   color: #ffffff;
 }
 
-.Logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.Redes {
   height: 100%;
-  width: 20%;
-}
-
-.Logo img {
-  width: 50%;
-  height: 130%;
+  width: 30%;
 }
 
 @media (max-width: 768px) {
@@ -147,7 +152,7 @@ html {
 
 .Home {
   width: 100%;
-  height: 60vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -156,7 +161,7 @@ html {
 
 .Vantagens {
   width: 100%;
-  height: 60vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,7 +170,7 @@ html {
 
 .Contato {
   width: 100%;
-  height: 60vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
