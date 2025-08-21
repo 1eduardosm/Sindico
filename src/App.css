@@ -41,7 +41,7 @@ html {
   align-items: center;
   justify-content: left;
   height: 100%;
-  width: 15%;
+  width: 13%;
 }
 
 .Logo img {
@@ -54,7 +54,7 @@ html {
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 40%;
+  width: 50%;
   justify-content: space-around;
 }
 
@@ -74,10 +74,23 @@ html {
 
 .Redes {
   height: 100%;
-  width: 30%;
+  width: 20%;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
 }
 
-@media (max-width: 768px) {
+.Redes img {
+  width: 15%;
+  height: 45%;
+  transition: transform 0.3s ease;
+}
+
+.Redes img:hover {
+  transform: scale(1.2); /* aumenta 0.5% */
+}
+
+@media (max-width: 1024px) {
   .Header {
     flex-direction: row;
     height: 14vh;
@@ -136,7 +149,6 @@ html {
     align-items: center;
     justify-content: center;
   }
-
 }
 
 .Body {
