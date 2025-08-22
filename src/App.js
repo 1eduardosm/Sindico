@@ -16,7 +16,7 @@ function App() {
 
   const scrollToRef = (ref) => {
     if (ref && ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
 
@@ -59,7 +59,7 @@ function App() {
             <img
               src="/icon_youtube.png"
               alt="youtube"
-              onClick={() => window.open("https://www.youtube.com/", "_blank")}
+              onClick={() => window.open("https://www.youtube.com/channel/UC1kyVthlbkzK0D9bkioGCEg", "_blank")}
               style={{ cursor: "pointer" }}
             />
           </div>
@@ -67,8 +67,25 @@ function App() {
       </div>
 
       <div className="Body">
-        <div className="Home" ref={homeRef}>Home</div>
-        <div className="Vantagens" ref={vantagensRef}>Vantagens</div>
+        <div className="Home" ref={homeRef}>
+          <div className="Fundo">
+            <img src="/fundo.png"/>
+          </div>
+          <div className="Inicio">
+            <div className="InicioTitulo">
+
+            </div>
+            <div className="InicioDescritivo">
+
+            </div>
+            <div className="InicioCards">
+
+            </div>
+          </div>
+        </div>
+        <div className="Vantagens" ref={vantagensRef}>
+          
+        </div>
         <div className="Contato" ref={contatoRef}>Contato</div>
       </div>
 
