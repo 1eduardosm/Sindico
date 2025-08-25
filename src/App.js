@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import './App.css';
+const numero = "5547999629798"; 
 
 function App() {
   const homeRef = useRef(null);
@@ -37,7 +38,7 @@ function App() {
               src="/icon_whatsapp.png"
               alt="whatsapp"
               onClick={() => {
-                const numero = "5547999629798"; 
+                
                 const mensagem = "Olá, vi seu site, gostaria de mais informações";
                 const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
                 window.open(url, "_blank");
