@@ -1,25 +1,22 @@
-import { useRef, useState, useEffect } from "react";
+import { useCallback } from "react";
 import "./App.css";
 import Header from "./Header/Header";
+import Home from "./Home";
+import { useAppRefs, useIsDesktop } from "./Constantes";
+import Vantagens from "./Vantagens";
+import Contato from "./Contato";
+import { getFirestore } from "firebase/firestore";
 
 function App() {
-  const homeRef = useRef(null);
-  const vantagensRef = useRef(null);
-  const contatoRef = useRef(null);
 
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+  const { homeRef, vantagensRef, contatoRef } = useAppRefs();
+  const isDesktop = useIsDesktop();
 
-  useEffect(() => {
-    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const scrollToRef = (ref) => {
+  const scrollToRef = useCallback((ref) => {
     if (ref?.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
     }
-  };
+  }, []);
 
   return (
     <div className="App">
@@ -30,23 +27,19 @@ function App() {
         contatoRef={contatoRef}
         isDesktop={isDesktop}
       />
-      <div className="Home" ref={homeRef}>
-        <div className="Fundo">
-          <img src="/fundo.png" alt="Fundo" />
-        </div>
-        <div className="Inicio">
-          <div className="InicioTitulo"></div>
-          <div className="InicioDescritivo"></div>
-          <div className="InicioCards"></div>
-        </div>
-      </div>
-      <div className="Vantagens" ref={vantagensRef}></div>
-      <div className="Contato" ref={contatoRef}></div>
+      <Home
+        sectionRef={homeRef}
+      />
+      <Vantagens
+        sectionRef={vantagensRef}
+      />
+      <Contato
+        sectionRef={contatoRef}
+      />
       <div className="Footer">
         <p>Eu te amo pai!!!</p>
       </div>
     </div>
   );
 }
-
 export default App;
