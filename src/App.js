@@ -92,7 +92,7 @@ function App() {
 
       {/* Footer */}
       <div className="Footer">
-        <p>Eu te amo pai!</p>
+        <p>Eu te amo pai!!!</p>
       </div>
     </div>
   );
