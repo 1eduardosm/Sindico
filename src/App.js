@@ -1,10 +1,10 @@
 import { useCallback } from "react";
 import "./App.css";
 import Header from "./Header/Header";
-import Home from "./Home";
+import Home from "./Start";
 import { useAppRefs, useIsDesktop } from "./Constantes";
-import Vantagens from "./Vantagens";
-import Contato from "./Contato";
+import Vantagens from "./Middle";
+import Contato from "./End";
 import { getFirestore } from "firebase/firestore";
 
 function App() {

@@ -1,25 +1,12 @@
-import { LinkWhats, LinkInst, LinkFace, LinkYt } from "../Constantes";
 
-function Redes() {
+function Redes({icon, page}) {
   return (
     <div className="Redes">
       <img
-        src="/icon_whatsapp.png"
+        src={icon}
         onClick={() => {
-          window.open(LinkWhats, "_blank");
+          window.open(page, "_blank");
         }}
-      />
-      <img
-        src="/icon_instagram.png"
-        onClick={() => window.open(LinkInst, "_blank")}
-      />
-      <img
-        src="/icon_facebook.png"
-        onClick={() => window.open(LinkFace, "_blank")}
-      />
-      <img
-        src="/icon_youtube.png"
-        onClick={() => window.open(LinkYt, "_blank")}
       />
     </div>
   );
