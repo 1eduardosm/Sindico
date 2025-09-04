@@ -1,8 +1,7 @@
-import React, { use, useState } from 'react'
-import { getFirestore, database, doc, updateDoc, collection } from "./firebaseConfig";
-import { onSnapshot, query } from 'firebase/firestore';
-import { auth, onAuthStateChanged} from './firebaseConfig';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import React, { use, useState, useEffect } from 'react'
+import { getFirestore, database, doc, updateDoc, collection, auth } from "./firebaseConfig";
+import { getDoc, onSnapshot, query } from 'firebase/firestore';
+import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
 
 const Edit = () => {
 
@@ -14,35 +13,69 @@ const Edit = () => {
 
   const name = collection(database, "Cliente")
 
-  onSnapshot(name, (query) => {
-    const list = []
-    query.forEach((doc) => {
-      const docData = doc.data();
-      list.push({ ...docData, id: doc.id })
-
+  useEffect(() => { //da o get
+    onSnapshot(name, (query) => {
+      const list = []
+      query.forEach((doc) => {
+        const docData = doc.data();
+        list.push({ ...docData, id: doc.id })
+      })
+      setPesquisa(list)
     })
-    setPesquisa(list)
-  })
+  }, [])
+
+
+  useEffect(() => { //confirmação no console.log de que o login está certo (apenas para fins de entender o que está acontecendo)
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const docRef = doc(database, "users", user.uid)
+        try {
+          const docSnap = await getDoc(docRef)
+          console.log(docSnap.data())
+        } catch (e) {
+          console.log(e)
+        }
+      }
+    })
+  }, [])
 
   function edit(id) {
-    const clienteRef = doc(database, "Cliente", id)
-    updateDoc(clienteRef, {
-      cliente: input
-    })
+    try {
+      const clienteRef = doc(database, "Cliente", id)
+      updateDoc(clienteRef, {
+        cliente: input
+      })
+    }
+    catch (e) {
+      console.log("erro: ", e)
+    }
+
   }
-  
+
   async function logar() {
     try {
       await signInWithEmailAndPassword(auth, login, password)
+      console.log('logou')
+
     }
-    catch{
+    catch (e) {
       console.log('não foi possível logar')
+      console.log(e)
+    }
+  }
+
+  function logout() {
+    try {
+      signOut(auth)
+      console.log("deslogou")
+    } catch (e) {
+      console.log("erro ao deslogar: ", e)
     }
   }
 
   return (
     <div>
-      ------get------ 
+      ------get------
       {pesquisa.map(item => (
         <div id={item.id} onClick={() => setEstado(item.id)}>
           {item.cliente}
@@ -56,13 +89,13 @@ const Edit = () => {
       <div>
         login
         <div>
-          <input placeholder='login' onChange={(e) => setLogin(e.target.value)}/>
+          <input placeholder='login' onChange={(e) => setLogin(e.target.value)} />
         </div>
         <div>
-          <input placeholder='senha' onChange={(e) => setPassword(e.target.value)}/>
+          <input placeholder='senha' onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <button onClick={() => logar()}>logar</button>
-
+        <button onClick={() => logar()}>login</button>
+        <button onClick={() => logout()}>logout</button>
       </div>
     </div>
   )
